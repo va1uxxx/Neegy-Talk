@@ -1,18 +1,26 @@
 {
   "name": "Neegy-Talk",
   "short_name": "Neegy",
-  "description": "Talk to Neegy. Levels, lore, and a room with a browser in it.",
+  "description": "Small, fast chat rooms for real people. No account, no bot.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#06070b",
-  "theme_color": "#06070b",
+  "orientation": "any",
+  "background_color": "#08090f",
+  "theme_color": "#08090f",
+  "categories": ["social", "communication"],
   "icons": [
     {
       "src": "assets/neegy/icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
+    },
+    {
+      "src": "assets/neegy/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     }
   ]
 }

@@ -4,19 +4,17 @@
 export const CONFIG = {
   siteName: 'Neegy-Talk',
 
-  // '' = same origin. Set to 'https://your-proxy.example.com' if /api/room lives elsewhere.
+  // null = same origin (ws(s)://<this host>/ws). Set the full URL when the chat
+  // hub lives somewhere else, e.g. 'wss://chat.example.com/ws'.
+  wsUrl: null,
+
+  // '' = same origin, for /api/room (the optional Hyperbeam proxy).
   apiBase: '',
 
-  // Drop a PNG/JPG here to replace the built-in vector Neegy, e.g. 'assets/neegy/neegy.png'
-  art: null,
-
-  room: {
-    region: 'NA',            // NA | EU | AS
-    startUrl: 'https://neal.fun/'
-  },
-
   chat: {
-    minTypingMs: 450,
-    maxTypingMs: 1600
+    // 'auto'   probe for a hub, fall back to local mode when none answers
+    // 'server' always use the hub (shows a reconnect banner if it is down)
+    // 'local'  never open a socket; tabs only (demo)
+    mode: 'auto'
   }
 };

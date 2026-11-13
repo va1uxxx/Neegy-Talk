@@ -1,0 +1,14 @@
+# Never served by the Cloudflare Worker's assets binding.
+server.py
+wrangler.toml
+README.md
+.env.example
+.env
+data/
+worker/
+api/
+.github/
+node_modules/
+.git/
+.DS_Store
+test/

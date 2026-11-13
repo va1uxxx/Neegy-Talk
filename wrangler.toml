@@ -1,0 +1,21 @@
+name = "neegy-talk"
+main = "worker/index.js"
+compatibility_date = "2025-06-01"
+
+# Static site: every file except the server sources (see .assetsignore).
+[assets]
+directory = "."
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/ws", "/api/*"]
+
+[[durable_objects.bindings]]
+name = "CHAT"
+class_name = "Chat"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Chat"]
+
+[observability]
+enabled = true
