@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Neegy-Talk</title>
+<meta name="description" content="Talk to Neegy. Levels, lore, and a room with a browser in it." />
+<meta name="theme-color" content="#06070b" />
+<link rel="icon" href="assets/neegy/icon.svg" type="image/svg+xml" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16" r="3" fill="currentColor"/></svg>
+    </span>
+    <span class="brand-name">neegy<span>·</span>talk</span>
+  </div>
+
+  <div class="topbar-right">
+    <button class="pill" id="levelPill" type="button" title="Open the levels tab">
+      <span class="pill-dot" id="pillDot"></span>
+      <span id="pillText">Lv 1 · Stranger</span>
+    </button>
+    <button class="icon-btn" id="soundBtn" type="button" aria-pressed="true" title="Toggle sound">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 10v4h3l4 3V7l-4 3H5z" fill="currentColor"/><path d="M16 9c1.2 1 1.2 5 0 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="wave2" d="M18.5 6.5c2.4 2 2.4 9 0 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <button class="icon-btn" id="settingsBtn" type="button" title="Settings">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="shell">
+
+  <!-- ── left rail ────────────────────────────────────────────── -->
+  <aside class="rail">
+    <div class="avatar-stage" id="avatarStage">
+      <div class="aura" aria-hidden="true"></div>
+      <div class="orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="avatar-frame" id="avatarFrame">
+        <svg class="neegy" viewBox="0 0 200 200" role="img" aria-label="Neegy">
+          <defs>
+            <radialGradient id="iris" cx="50%" cy="40%" r="70%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity=".95"/>
+              <stop offset="45%" stop-color="var(--accent)"/>
+              <stop offset="100%" stop-color="#0b0d16"/>
+            </radialGradient>
+            <linearGradient id="hoodie" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#262e46"/>
+              <stop offset="100%" stop-color="#141926"/>
+            </linearGradient>
+          </defs>
+
+          <path d="M38 200C40 158 68 144 100 144s60 14 62 56z" fill="url(#hoodie)"/>
+          <path d="M88 126h24v26a12 12 0 0 1-24 0z" fill="#d9c4cf"/>
+          <path d="M74 200c4-20 12-30 26-34 14 4 22 14 26 34z" fill="#0f1320" opacity=".55"/>
+
+          <ellipse cx="100" cy="86" rx="54" ry="58" fill="#191d2f"/>
+          <ellipse cx="100" cy="94" rx="42" ry="45" fill="#f3e2e8"/>
+          <ellipse cx="58" cy="98" rx="7" ry="9" fill="#ecd7df"/>
+          <ellipse cx="142" cy="98" rx="7" ry="9" fill="#ecd7df"/>
+
+          <path d="M57 82c4-30 24-44 43-44s39 14 43 44c-14-18-30-24-43-16-13-8-29-2-43 16z" fill="#1d2236"/>
+          <path d="M100 38c3-14-4-20 4-28" stroke="#1d2236" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <circle cx="105" cy="9" r="4" fill="var(--accent)"/>
+
+          <g class="eyes">
+            <ellipse cx="83" cy="97" rx="8.5" ry="10.5" fill="#fdf7fa"/>
+            <ellipse cx="117" cy="97" rx="8.5" ry="10.5" fill="#fdf7fa"/>
+            <ellipse cx="83" cy="98" rx="7" ry="9.5" fill="url(#iris)"/>
+            <ellipse cx="117" cy="98" rx="7" ry="9.5" fill="url(#iris)"/>
+            <circle cx="80.5" cy="94" r="2.4" fill="#fff"/>
+            <circle cx="114.5" cy="94" r="2.4" fill="#fff"/>
+          </g>
+
+          <path d="M74 84c4-3 9-3 13-1M126 84c-4-3-9-3-13-1" stroke="#3a3f57" stroke-width="2.2" stroke-linecap="round" fill="none" opacity=".8"/>
+          <ellipse cx="70" cy="110" rx="7.5" ry="4" fill="#ff9db4" opacity=".33"/>
+          <ellipse cx="130" cy="110" rx="7.5" ry="4" fill="#ff9db4" opacity=".33"/>
+          <path d="M99 105c1.5 2.5 1 4-.5 4.5" stroke="#d9bcc7" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path class="mouth" d="M94 116c3 4 9 4 12 0" stroke="#8d5a6c" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+      <div class="mood-ring" id="moodRing" aria-hidden="true"></div>
+    </div>
+
+    <h1 class="who">Neegy</h1>
+    <p class="tag" id="neegyStatus">signal acquired</p>
+
+    <div class="level-row">
+      <span class="lvl-num" id="lvlNum">1</span>
+      <div class="level-meta">
+        <span class="lvl-name" id="lvlName">Stranger</span>
+        <span class="lvl-sub" id="lvlSub">level 1 of 15</span>
+      </div>
+    </div>
+
+    <div class="xpbar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="xpBar">
+      <div class="xpfill" id="xpFill"></div>
+      <div class="xpshine" aria-hidden="true"></div>
+    </div>
+    <div class="xpmeta">
+      <span id="xpText">0 xp</span>
+      <span id="xpLeft">120 to go</span>
+    </div>
+
+    <button class="btn btn-primary" id="checkinBtn" type="button">
+      <span>Check in</span>
+      <span class="btn-sub" id="checkinSub">+25 xp</span>
+    </button>
+
+    <dl class="chips">
+      <div><dt>streak</dt><dd id="statStreak">0</dd></div>
+      <div><dt>messages</dt><dd id="statMsgs">0</dd></div>
+      <div><dt>topics</dt><dd id="statTopics">0</dd></div>
+      <div><dt>lore</dt><dd id="statLore">0</dd></div>
+    </dl>
+
+    <button class="btn btn-ghost btn-room" id="roomBtn" type="button">
+      <span class="room-dot"></span>
+      <span id="roomBtnText">Open Neegy's Room</span>
+    </button>
+    <p class="room-hint" id="roomHint">unlocks at level 2</p>
+  </aside>
+
+  <!-- ── chat ─────────────────────────────────────────────────── -->
+  <section class="chat" aria-label="Conversation with Neegy">
+    <div class="chat-head">
+      <span class="live-dot" id="liveDot"></span>
+      <span id="chatHeadText">Neegy is here</span>
+      <span class="chat-head-right" id="chatHeadRight"></span>
+    </div>
+
+    <div class="log" id="log" aria-live="polite"></div>
+
+    <form class="composer" id="composer" autocomplete="off">
+      <textarea id="input" rows="1" maxlength="600" placeholder="say something to Neegy…" aria-label="Message"></textarea>
+      <button class="send" id="sendBtn" type="submit" aria-label="Send message">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12l16-8-6 8 6 8z" fill="currentColor"/></svg>
+      </button>
+    </form>
+    <p class="composer-hint"><kbd>Enter</kbd> to send · <kbd>Shift</kbd>+<kbd>Enter</kbd> for a new line · <span id="xpRateHint">+6 xp a message</span></p>
+  </section>
+
+  <!-- ── right panel ──────────────────────────────────────────── -->
+  <aside class="panel">
+    <div class="tabs" role="tablist" aria-label="Panels">
+      <button role="tab" data-tab="quests" aria-selected="true">Today</button>
+      <button role="tab" data-tab="levels" aria-selected="false">Levels</button>
+      <button role="tab" data-tab="lore" aria-selected="false">Lore</button>
+    </div>
+
+    <div class="panes">
+      <div class="pane is-active" id="pane-quests" role="tabpanel">
+        <p class="pane-intro" id="questIntro">Three things for today. They reset at midnight.</p>
+        <ul class="quests" id="questList"></ul>
+        <div class="pane-foot" id="questFoot"></div>
+      </div>
+
+      <div class="pane" id="pane-levels" role="tabpanel">
+        <p class="pane-intro">Every level changes how Neegy talks to you.</p>
+        <ol class="levels" id="levelList"></ol>
+      </div>
+
+      <div class="pane" id="pane-lore" role="tabpanel">
+        <p class="pane-intro">Fragments Neegy lets you read. New ones open as you level.</p>
+        <ul class="lore" id="loreList"></ul>
+      </div>
+    </div>
+  </aside>
+</main>
+
+<!-- ── room overlay ────────────────────────────────────────────── -->
+<section class="room-overlay" id="roomOverlay" hidden aria-label="Neegy's Room">
+  <div class="room-shell">
+    <header class="room-head">
+      <div class="room-title">
+        <span class="live-dot"></span>
+        <strong>Neegy's Room</strong>
+        <span class="room-place" id="roomPlace">neal.fun</span>
+      </div>
+      <div class="room-tools">
+        <div class="places" id="places"></div>
+        <label class="volume">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 10v4h3l4 3V7l-4 3H5z" fill="currentColor"/></svg>
+          <input type="range" id="volume" min="0" max="100" value="35" />
+        </label>
+        <button class="icon-btn" id="roomEndBtn" type="button" title="End session">End</button>
+        <button class="icon-btn" id="roomCloseBtn" type="button" title="Close">Close</button>
+      </div>
+    </header>
+    <div class="room-body">
+      <div class="hb" id="hbContainer"></div>
+      <div class="room-status" id="roomStatus" hidden></div>
+    </div>
+    <footer class="room-foot">
+      <span id="roomMeta">not connected</span>
+      <span id="roomClock"></span>
+    </footer>
+  </div>
+</section>
+
+<!-- ── modals ──────────────────────────────────────────────────── -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-card" id="modalCard" role="dialog" aria-modal="true">
+    <button class="modal-x" id="modalX" type="button" aria-label="Close">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<div class="levelup" id="levelup" hidden>
+  <div class="levelup-card">
+    <div class="levelup-eyebrow">level up</div>
+    <div class="levelup-num" id="luNum">2</div>
+    <div class="levelup-name" id="luName">Heard</div>
+    <p class="levelup-perk" id="luPerk"></p>
+    <button class="btn btn-primary" id="luBtn" type="button">Continue</button>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
